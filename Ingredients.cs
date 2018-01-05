@@ -75,11 +75,43 @@ namespace LemonadeStand
         }
         catch (Exception)
         {
-
+            Console.WriteLine("You must enter a valid number.");
+            MakeCustomLemons();
+            throw;
         }
     }
-                 
+    public int CustomSugar()
+        {
+        Console.WriteLine("Please enter in the amount of sugar you would like to add?");
+        try
+        {
+            int sugarForLemonade = int.Parse(Console.ReadLine());
+            return this.sugarForLemonade = sugarForLemonade;
         }
+        catch(Exception)
+        {
+            Console.WriteLine.("Please type in a valid number.");
+            MakeCustomSugar();
+            throw;
+        }  
+        
+    }
+    public int MakeCustomIceCubes()
+    {
+        Console.WriteLine("Please type in the amount of ice you would like to add.");
+        try
+        {
+            int iceCubesForLemonade = int.Parse(Console.ReadLine());
+            return this.iceCubesForLemonade = iceCubesForLemonade;
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Please type in a valid number.");
+            MakeCustomIceCubes();
+            throw;
+        }
+}
+    public void DisplayCustomIngredients ()
     }
        
 }
