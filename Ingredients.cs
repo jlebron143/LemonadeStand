@@ -9,16 +9,16 @@ namespace LemonadeStand
    public class Ingredients
     {
         public int numberOfPitchers;
-        public int lemonsNeededFromInventory;
-        public int addingSugarFromInventory;
-        public int cupsNeededFromInventory;
+        public int TakeOutLemonsFromInventory;
+        public int TakeOutSugarFromInventory;
+        public int TakeOutCupsFromInventory;
         int amountOfLemonsNeeded;
         int amountOfSugarNeeded;
         int amountOfIceCubesNeeded;
-        public int cupsForRecipe;
+        public int cupsForIngredients;
 
     }
-    public pickIngredients()
+    public PickIngredients()
     {
         Console.WriteLine("");
         Console.WriteLine("");
@@ -76,7 +76,7 @@ namespace LemonadeStand
         catch (Exception)
         {
             Console.WriteLine("You must enter a valid number.");
-            MakeCustomLemons();
+            CustomLemons();
             throw;
         }
     }
@@ -91,7 +91,7 @@ namespace LemonadeStand
         catch(Exception)
         {
             Console.WriteLine.("Please type in a valid number.");
-            MakeCustomSugar();
+            CustomSugar();
             throw;
         }  
         
@@ -107,11 +107,71 @@ namespace LemonadeStand
         catch (Exception)
         {
             Console.WriteLine("Please type in a valid number.");
-            MakeCustomIceCubes();
+            CustomIceCubes();
             throw;
         }
 }
     public void DisplayCustomIngredients ()
+    {
+        Console.WriteLine("Please type in a valid number.");
+
     }
-       
-}
+     public int BringOutSugar()
+    {
+        try
+        {
+            TakeOutSugarFromInventory = numberOfPitchers * sugarForIngredients;
+            return TakeOutSugarFromInventory;
+
+        }
+        catch(Exception)
+        {
+            Console.WriteLine("Stop right there! You're short on sugar. You need to start from the beginning");
+            PickIngredients();
+            throw;
+        }
+        public int BringOutLemons()
+    {
+        try
+        {
+            TakeOutLemomsFromInventory = numberOfPitchers * lemonsForIngredients;
+            return TakeOutLemonFromInventory;
+        }
+        catch(Exception)
+        {
+            Console.WriteLine("Stop right there! Looks like you're short on lemons. Go back start from the beginning.");
+            PickIngredients();
+            throw;
+        }
+        public int BringOutIceCubes()
+    {
+        try
+        {
+            TakeOutIceCubesFromInventory = numberOfPitchers * iceCubesForIngredients;
+            return TakeOutIceCubesFromInventory;
+        }
+        catch(Exception)
+        {
+            Console.WriteLine("Stop right there! You need more ice cubes. Start fromt the beginning.");
+            PickIngredients();
+            throw;
+        }
+    }
+    public int BringOutCups()
+    {
+        try
+        {
+            TakeOutCupsFromInventory = numberOfPitchers * cupsForIngredients;
+            return TakeOutCupsFromInventory;
+        }
+        catch(Exception)
+        {
+            Console.WriteLine("Hold up! You're running short. Start over.");
+            PickIngredients();
+            throw;
+        }
+    }
+ }
+
+
+} 
