@@ -1,4 +1,4 @@
-﻿dusing System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Player
     {
-        public Funds funds = new Funds();
+        public Money money = new Money();
         public Inventory inventory = new Inventory();
         public Ingredients ingredients = new Ingredients();
     }
