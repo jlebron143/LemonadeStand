@@ -8,5 +8,20 @@ namespace LemonadeStand
 {
    public class Cups
     {
+        private double priceOfCups = .15;
+        private string nameCups;
+
+        public double pullPriceOfCups()
+        {
+            return priceOfCups;
+        }
+        public void makeCupsName()
+        {
+            nameCups = "Cups";
+        }
+        public string pullNameOfCups()
+        {
+            return nameCups;
+        }
     }
 }
