@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class IceCubes
+    public class IceCubes
     {
+        double priceOfIceCubes = .10;
+        string nameIceCubes;
+
+        public double pullIceCubesPrice()
+        {
+            return priceOfIceCubes;
+        }
+        public void makeIceCubesName()
+        {
+            nameIceCubes = "Ice Cubes";
+        }
+        public string pullIceCubesName()
+        {
+            return nameIceCubes;
+        }
     }
 }

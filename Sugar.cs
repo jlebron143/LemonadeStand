@@ -8,12 +8,12 @@ namespace LemonadeStand
 {
     public class Sugar
     {
-        double sugarCost = .50;
+        double priceOfSugar = .50;
         string sweetenerName;
 
         public double pullCost()
         {
-            return sugarCost;
+            return priceOfSugar;
 
         }
         public void nameThatSweetener ()
