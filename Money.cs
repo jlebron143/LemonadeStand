@@ -6,7 +6,42 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Money
+    public class Money
     {
+        //double is used for decimals; 64-bit
+        public double startingFunds = 12.00;
+        bool shortFunds;
+        double productCost;
+        double productsPurchased;
+        public void ShowCurrentBal()
+        {
+            Console.WriteLine(startingFunds);
+        }
+        public bool checkShortFunds()
+        {
+            if(startingFunds < productCost)
+            {
+                shortFunds = true;
+                Console.WriteLine("Oh no! Looks like you're short on funds. ");
+            }
+            return shortFunds;
+        }
+      
+    }
+    public double purchaseProducts(double productCost)
+    {
+        productsPurchased = startingFunds - productCost;
+        Console.WriteLine("Product purchase is completed!");
+        startingFunds = productsPurchased;
+        return startingFunds;
+
+    }
+    public void weeklyProfit ()
+    {
+        double profit;
+        double beginningInvestment = 12.00;
+        profit = startingFunds - beginningInvestment;
+        Console.WriteLine("This week you have made {0} in profit!");
+        
     }
 }
