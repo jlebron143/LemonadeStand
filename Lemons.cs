@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Lemons
+    public class Lemons
     {
+        private double priceOfLemons = .15;
+        private string callFruit;
+
+   public double TellLemonCost()
+        {
+            return priceOfLemons;
+        }
+     public void makeLemonWord ()
+        {
+            callFruit = "Lemon";
+        }
+    public string giveLemonName()
+        {
+            return callFruit;
+        }
     }
 }
