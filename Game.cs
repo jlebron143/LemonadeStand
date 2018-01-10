@@ -22,7 +22,7 @@ namespace LemonadeStand
             rnd = new Random();
             forecast = new Forecast(rnd);
             player = new Player();
-            store = new ();
+            store = new Store ();
             day = new Everyday(rnd);
 
         }
@@ -31,7 +31,7 @@ namespace LemonadeStand
             day.makeCustomers();
             RandomNumber();
             DisplayOpeningStatement();
-            day.SellLemonade(player);
+            day.TimeForLemonadeSell(player);
 
         }
 
@@ -49,7 +49,7 @@ namespace LemonadeStand
 
         public void MakeForecast()
         {
-            day.forecast.CreateTodaysForecast();
+            day.forecast.MakeDailyForecast();
         }
 
         public void MainMenu()
@@ -93,7 +93,7 @@ namespace LemonadeStand
 
                 case "5":
                     Console.Clear();
-                    player.inventory.DisplayAllInventory();
+                    player.inventory.DisplayAllOfInventory();
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -152,6 +152,7 @@ namespace LemonadeStand
                 case "N":
                     Environment.Exit(0);
                     break;
+                default:
                     Console.WriteLine("Sorry, that we don't have an option for that.\n\n");
                     break;
 
