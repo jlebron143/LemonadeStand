@@ -143,8 +143,8 @@ namespace LemonadeStand
 
         public void RestartGame()
         {
-            Console.WriteLine("Would you like play again? [Y] or [N]");
-            string answer = Console.ReadLine().ToUpper();
+            Console.WriteLine("Would you like play again? [Yes] or [No]");
+            string answer = Console.ReadLine().ToUpper().ToLower();
             switch (answer)
             {
                 case "Y":
