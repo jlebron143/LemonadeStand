@@ -52,7 +52,7 @@ namespace LemonadeStand
             Console.WriteLine("How many pitchers do you want to make for the day?");
             try
             {
-                numberOfPitchers = int.Parse(Console.ReadLine());
+                numberOfPitchers = int.Parse(Console.ReadLine()); 
                 return numberOfPitchers;
 
             }
@@ -151,7 +151,7 @@ namespace LemonadeStand
         {
             try
             {
-                TakeOutIceCubesFromInventory = numberOfPitchers * iceCubesForIngredients;
+                TakeOutIceCubesFromInventory = numberOfPitchers * amountOfIceCubesNeeded;
                 return TakeOutIceCubesFromInventory;
             }
             catch (Exception)
