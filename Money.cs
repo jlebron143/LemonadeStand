@@ -10,9 +10,10 @@ namespace LemonadeStand
     {
         //double is used for decimals; 64-bit
         public double startingFunds = 12.00;
-        bool shortFunds;
-        double productCost;
         double productsPurchased;
+        double productCost;
+        bool shortFunds;
+
         public void ShowCurrentBal()
         {
             Console.WriteLine(startingFunds);
@@ -28,7 +29,7 @@ namespace LemonadeStand
         }
       
     }
-    public double purchaseProducts(double productCost)
+    public double transactionOnProducts(double productCost)
     {
         productsPurchased = startingFunds - productCost;
         Console.WriteLine("Product purchase is completed!");

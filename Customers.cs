@@ -10,9 +10,12 @@ namespace LemonadeStand
     {
        
         public double chanceOfMaxPurchase;
-        double probabilityOfPurchase;
-        public bool purchase;
         public int amountOfCupsBought;
+
+        public bool purchase;
+        double probabilityOfPurchase;
+        double investmentPrediction;
+        
         double temperaturePrediction;
         double statusPrediction;
         Random rnd;
@@ -24,17 +27,68 @@ namespace LemonadeStand
             amountOfCupsBought = AmountOfCupsBought;
 
         }
+        public void purchaseStatusProbablitity(Forecast forecast)
+        {
+            if (forecast.status == "sunny")
+            {
+                statusPrediction = measurePercentage - .85;
+            }
+            else if (forecast.status == "Cloudy" || forecast.status == "foggy")
+            {
+                temperaturePrediction = measurePercentage - .50;
+
+            }
+            else if (forecast.status == "rainy" || forecast.status == "furries")
+            {
+                temperaturePrediction = measurePercentage - .25;
+
+            }
+        }
 
         public void purchaseTemperatureProbablitity (Forecast forecast)
         {
             if( forecast.temperature <= 65)
             {
-                   temperaturePrediction
+                temperaturePrediction = measurePercentage - .50;
+            }
+            else if (forecast.temperature >= 75)
+            {
+                temperaturePrediction = measurePercentage - .75;
+
             }
         }
-        
+       
+        public void probablitityTopurchase(Everyday day)
+        {
+            if (day.probabilityToPurchase == .50)
+            {
+                investmentPrediction = measurePercentage - .85;
+            }
+            else if (day.probabilityToPurchase == .75)
+            {
+                investmentPrediction = measurePercentage - .50;
 
-          
+            }
+            else if (day.probabilityToPurchase == 1.00)
+            {
+                investmentPrediction = measurePercentage - .25;
+
+            }
+            else if (day.probabilityToPurchase == 1.25)
+            {
+                investmentPrediction = measurePercentage - .15;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
 
     }
 }

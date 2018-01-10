@@ -61,7 +61,7 @@ namespace LemonadeStand
         }
         public void MakeTomorrowsForecast()
         {
-            List<string> forecastForDay = new List<string> {"Tomorrow's }
+            List<string> forecastForDay = new List<string> { "Tomorrow's " };
                 foreach (string day in forecastForDay)
             {
                 ForecastStatus();

@@ -137,8 +137,9 @@ namespace LemonadeStand
             Console.WriteLine("At the time of closing up your stand, you will be able to tally up your profit for the day.");
             Console.WriteLine("Your profit for the day will determine how much you have invest fot your lemonade for the following day.");
             Console.WriteLine("So spend and manage your money well.");
-            Console.WriteLine("GoodLuck!")
-                }
+            Console.WriteLine("GoodLuck!");
+        }
+                
 
         public void RestartGame()
         {

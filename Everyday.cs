@@ -33,7 +33,7 @@ namespace LemonadeStand
         }
         public double cupPrice()
         {
-            Console.WriteLine("");
+            Console.WriteLine("You need to set your price for each cup of lemonade. ");
             try
             {
                 double.priceOfCups = double.Parse(Console.ReadLine());
@@ -65,7 +65,7 @@ namespace LemonadeStand
         }
         public void makeCustomers()
         {
-            for (int i = ; i < dailyCustomerTraffic; i++)
+            for (int i = 0; i < dailyCustomerTraffic; i++)
             {
                 int amountOfCups = CustomersDesireForPurchase();
                 double amountToPay = CustomerBuyingLemonade();
