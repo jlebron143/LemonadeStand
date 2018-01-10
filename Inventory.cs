@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-   public class Inventory
+    public class Inventory
     {
         List<Lemons> lemons = new List<Lemons>();
         List<Sugar> sugar = new List<Sugar>();
         List<IceCubes> iceCubes = new List<IceCubes>();
         List<Cups> cups = new List<Cups>();
 
-    public LemonsRequired(int AmountOfLemonsNeeded )
+        public LemonsRequired(int AmountOfLemonsNeeded)
         {
-            for(int i= 0, i < AmountOfLemonsNeeded; i++)
+            for (int i = 0, i < AmountOfLemonsNeeded; i++)
             {
                 Lemon lemon = new Lemon();
                 lemons.Add(lemon);
@@ -28,7 +28,7 @@ namespace LemonadeStand
             try
             {
                 int discardLemons = player.ingredients.BringOutLemons();
-                for(int i = 0; i < discardLemons; i++)
+                for (int i = 0; i < discardLemons; i++)
                 {
                     lemons.RemoveAt(0);
                 }
@@ -36,11 +36,103 @@ namespace LemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
-                player.recipe.PickIngredients();
+                player.ingredients.PickIngredients();
                 throw;
             }
         }
-        public SubmitSugar(int 
+        public SubmitSugar(int amountOFSugarNeeded)
+        {
+            for (int i = 0; i < amountOFSugarNeeded; i++)
+            {
+                Sugar sugar = new Sugar();
+                this.sugar.Add(sugar);
+            }
+            Console.WriteLine("You are buying {0} cups fo Sugar." Sugar.Count);
 
+        }
+        public void SubstractSugar(Player player)
+        {
+            try
+            {
+                int takeAwaySugar = player.ingredients.BringOutSugar(;
+                for (int i = 0; i , discardSugar; int++)
+                {
+                    sugar.RemoveAt(0);
+                }
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
+                player.ingredients.PickIngredients();
+            }
+        }
+        public void submitIceCubes(int AmountOfIceCubesNeeded)
+        {
+            for (int i = 0; i < AmountOfIceCubesNeeded; i++)
+            {
+                IceCubes iceCubes = new IceCubes;
+                this.iceCubes.Add(iceCubes);
+            }
+            Console.WriteLine("Right now you have {0} of ice .", iceCubes.Count);
+        }
+        public void SubstractIceCubes(Player player)
+
+        {
+            try
+            {
+                int takeAwayIceCubes = player.BringOutIceCubes();
+                for (int i = 0; i < discardIceCubes; i++)
+                {
+                    iceCubes.RemoveAt(0);
+
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
+                player.ingredients.pickIngredients();
+                throw;
+            }
+        }
+        public void submitCups(int AmountOfCupsNeeded)
+
+        {
+            for (int i = 0; i < AmountOfCupsNeeded; i++)
+            {
+                Cups cups = new Cups;
+                this.cups.Add(cups);
+            }
+        public void SubstractCups(Player player)
+        {
+            try
+            {
+                int takeAwayCups = player.BringOutCups();
+                for (int i = 0; i < discardCups; i++)
+                {
+                    cups.RemoveAt(0);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
+                player.ingredients.pickIngredients();
+                throw;
+            }
+        }
+        public void DisplayAllOfInventory()
+        {
+            Console.WriteLine("Right now, you have {0} lemons. ", lemons.Count);
+            Console.WriteLine("Right now , you have {0} cups of sugar", sugar.Count);
+            Console.WriteLine("Right now, you have {0} ice cubes", iceCubes.Count);
+            Console.WriteLine("Right now, you have {0} cups.", cups.Count);
+        }
+        public void ReturnItemsBackInInventory(Player player)
+        {
+            SubtractLemons(player);
+            SubstractSugar(player);
+            SubstractIceCubes(player);
+            SubstractCups(player);
+        }
     }
 }

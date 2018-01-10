@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
    public class Customers
     {
-        double measurePercentage = 100;
+       
         public double chanceOfMaxPurchase;
         double probabilityOfPurchase;
         public bool purchase;
@@ -16,6 +16,7 @@ namespace LemonadeStand
         double temperaturePrediction;
         double statusPrediction;
         Random rnd;
+        double measurePercentage = 100;
 
         public Customers( double ChanceOfMaxPurchase, double AmountOfCupsBought)
         {
