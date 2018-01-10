@@ -27,9 +27,11 @@ namespace LemonadeStand
         public void purchaseTemperatureProbablitity (Forecast forecast)
         {
             if( forecast.temperature <= 65)
-            { }
-        }
+            {
 
+            }
+        }
+        
 
           
 

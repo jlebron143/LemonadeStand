@@ -11,7 +11,7 @@ namespace LemonadeStand
         private double priceOfLemons = .15;
         private string callFruit;
 
-   public double TellLemonCost()
+   public double pullCost()
         {
             return priceOfLemons;
         }

@@ -11,7 +11,7 @@ namespace LemonadeStand
         double priceOfIceCubes = .10;
         string nameIceCubes;
 
-        public double pullIceCubesPrice()
+        public double pullCost()
         {
             return priceOfIceCubes;
         }

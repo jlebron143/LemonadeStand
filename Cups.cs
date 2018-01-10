@@ -11,7 +11,7 @@ namespace LemonadeStand
         private double priceOfCups = .15;
         private string nameCups;
 
-        public double pullPriceOfCups()
+        public double pullCost()
         {
             return priceOfCups;
         }
