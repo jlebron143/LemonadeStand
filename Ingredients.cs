@@ -18,7 +18,7 @@ namespace LemonadeStand
         public int cupsForIngredients;
 
     }
-    public PickIngredients()
+    public void PickIngredients()
     {
         Console.WriteLine("");
         Console.WriteLine("");

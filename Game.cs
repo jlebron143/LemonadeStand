@@ -61,14 +61,14 @@ namespace LemonadeStand
             {
                 case "1":
                     Console.Clear();
-                    DisplayInstructions();
+                    DisplayRules();
 
                     break;
 
                 case "2":
                     Console.Clear();
-                    day.forecast.DisplayTodayForecast();
-                    day.forecast.CreateForecast();
+                    day.forecast.MakeDailyForecast();
+                    day.forecast.MakeTomorrowsForecast();
                     Console.WriteLine("Press[enter] to go to main menu");
                     Console.ReadLine();
                     Console.Clear();
@@ -77,7 +77,7 @@ namespace LemonadeStand
 
                 case "3":
                     Console.Clear();
-                    player.funds.DisplayBalance();
+                    player.money.ShowCurrentBal();
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -85,7 +85,7 @@ namespace LemonadeStand
 
                 case "4":
                     Console.Clear();
-                    Store.restock(player);
+                    store.GroceryShop(player);
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -101,11 +101,11 @@ namespace LemonadeStand
 
                 case "6":
                     Console.Clear();
-                    player.inventory.DisplayAllProductInventory();
-                    player.recipe.PickRecipe();
-                    player.inventory.RemoveItemAfterLemonadeIsMade(player);
-                    Console.WriteLine("Right now you now have {0} cups of lemonade!!", (player.recipe.numberOfPitchers * player.recipe.cupsForRecipe));
-                    day.CalculatingWhenToStopSell(player);
+                    player.inventory.DisplayAllOfInventory();
+                    player.ingredients.PickIngredients();
+                    player.inventory.ReturnItemsBackInInventory(player);
+                    Console.WriteLine("Right now you now have {0} cups of lemonade!!", (player.ingredients.numberOfPitchers * player.ingredients.cupsForRecipe));
+                    day.endOfSaleCalcuations(player);
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -113,8 +113,8 @@ namespace LemonadeStand
 
                 case "7":
                     Console.Clear();
-                    day.PriceOfCup();
-                    player.Wallet.thisWeekEarnings();
+                    day.cupPrice();
+                    player.money.weeklyProfit();
                     Console.ReadLine();
                     RestartGame();
                     Console.Clear();
@@ -147,7 +147,7 @@ namespace LemonadeStand
             switch (answer)
             {
                 case "Y":
-                    DisplayWelcome();
+                    DisplayOpeningStatement();
                     break;
                 case "N":
                     Environment.Exit(0);

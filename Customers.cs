@@ -29,7 +29,7 @@ namespace LemonadeStand
         {
             if( forecast.temperature <= 65)
             {
-
+                   temperaturePrediction
             }
         }
         
