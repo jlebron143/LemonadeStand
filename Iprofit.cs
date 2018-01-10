@@ -8,5 +8,6 @@ namespace LemonadeStand
 {
     interface Iprofit
     {
+        double pullCost();
     }
 }
