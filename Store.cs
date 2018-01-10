@@ -173,10 +173,50 @@ namespace LemonadeStand
         player.inventory.IceCubesRequired(amountOfIceCubes);
         GroceryShop(player);
     }
-        }
+    public int amountOfCupsNeeded(Player player)
+    {
+        Console.WriteLine("Today each cups is on sale for .15 each.");
+        Console.WriteLine("How many cups do you need today?");
+        try
+        {
+            int cupsNeeded = int.Parse(Console.ReadLine());
+            return cupsNeeded;
 
         }
-        }
+        catch(Exception)
+        {
+            Console.WriteLine("Invaild! Try again.");
+            GroceryShop(player);
+            throw;
         }
     }
-}
+    public double amountOfCupsPurchased(int amountOfCupsNeeded)
+    {
+        Cups cups = new Cups;
+        getCups = Cups.pullCost() * amountOfCupsNeeded;
+        return getCups;
+    }
+     public void buyCups (Player player)
+    {
+        if (player.money.checkShortFunds(getCups))
+        {
+            GroceryShop(player);
+
+        }
+        else
+        {
+            player.money.purchaseProduct(getCups);
+        }
+    }
+    public void checkOutCups(Player player)
+    {
+        int amountOfCups = amountOfCupsNeeded(player);
+        amountOfCupsPurchased(amountOfCups);
+        buyCups(player);
+        player.inventory.IceCubesRequired(amountOfCups);
+        GroceryShop(player);
+        
+    }
+        }
+
+       
