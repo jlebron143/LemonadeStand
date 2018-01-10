@@ -20,29 +20,30 @@ namespace LemonadeStand
         }
         public bool checkShortFunds()
         {
-            if(startingFunds < productCost)
+            if (startingFunds < productCost)
             {
                 shortFunds = true;
                 Console.WriteLine("Oh no! Looks like you're short on funds. ");
             }
             return shortFunds;
         }
-      
-    }
-    public double transactionOnProducts(double productCost)
-    {
-        productsPurchased = startingFunds - productCost;
-        Console.WriteLine("Product purchase is completed!");
-        startingFunds = productsPurchased;
-        return startingFunds;
 
-    }
-    public void weeklyProfit ()
-    {
-        double profit;
-        double beginningInvestment = 12.00;
-        profit = startingFunds - beginningInvestment;
-        Console.WriteLine("This week you have made {0} in profit!");
-        
+
+        public double transactionOnProducts(double productCost)
+        {
+            productsPurchased = startingFunds - productCost;
+            Console.WriteLine("Product purchase is completed!");
+            startingFunds = productsPurchased;
+            return startingFunds;
+
+        }
+        public void weeklyProfit()
+        {
+            double profit;
+            double beginningInvestment = 12.00;
+            profit = startingFunds - beginningInvestment;
+            Console.WriteLine("This week you have made {0} in profit!");
+
+        }
     }
 }
