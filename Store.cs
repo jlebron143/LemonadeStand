@@ -28,7 +28,7 @@ namespace LemonadeStand
                     break;
                 case "Ice Cubes":
                     GrabIceCubes(player);
-                    break:
+                    break;
                 case "Cups":
                     GrabCups(player);
                     break;
@@ -42,16 +42,16 @@ namespace LemonadeStand
         public int AmountOfLemonsNeeded(Player player)
         {
             Console.WriteLine(" The price of lemons are .15 cents each. \n\n");
-            Console.WriteLine(" How many do you need?\n\n\");
+            Console.WriteLine(" How many do you need?");
                 try
             {
-                int lemonsNeeded = int.Parse(Console.ReadLine();
+                int lemonsNeeded = int.Parse(Console.ReadLine());
                 return lemonsNeeded;
             }
             catch (Exception)
             {
                 Console.WriteLine("Invaild! Type in correct number. \n\n");
-                GroceryShop(player;
+                GroceryShop(player);
                 throw;
             }
 
@@ -74,7 +74,7 @@ namespace LemonadeStand
 
             }
         }
-        public lemonsCheckOut(Player player)
+        public void GrabLemoms(Player player)
         {
             int amountOfLemons = AmountOfLemonsNeeded(player);
             amountOfPurchasedLemons(amountOfLemons);
@@ -86,7 +86,7 @@ namespace LemonadeStand
         public int amountOfSugarNeeded(Player player)
         {
             Console.WriteLine(" Every cup of sugar cost .50  cents. \n\n");
-            Console.WriteLine("How many cups of sugar do you need to buy today? \n\n\");
+            Console.WriteLine("How many cups of sugar do you need to buy today?");
            try
             {
                 int sugarNeeded = int.Parse(Console.ReadLine());
@@ -118,15 +118,15 @@ namespace LemonadeStand
                 player.money.purchaseProducts(getSugar);
             }
         }
-        public void sugarCheckOut(Player player)
+        public void GrabSugar(Player player)
         {
-            int amountOfSugar = amountOfSugarNeeded(player)
-            amountOfSugarPurchased(amountOfSugar);
+            int amountOfSugar = amountOfSugarNeeded(player);
+            amountOfSugarPurchased (amountOfSugar);
             buySugar(player);
             player.inventory.SugarRequired(amountOfSugar);
             GroceryShop(player);
         }
-        public void amountOfSugarNeeded(Player player)
+        public void amountOfIceCubesNeeded(Player player)
         {
             Console.WriteLine("They have ice cubes at .10 cents.");
             Console.WriteLine("How many ice cubes do you need today?");
@@ -145,7 +145,7 @@ namespace LemonadeStand
         }
         public double amountOfIceCubesPurchased( int iceCubesNeededToBuy)
         {
-            IceCubes iceCubes = new IceCubes;
+            IceCubes iceCubes = new IceCubes();
             getIceCubes = iceCubes.pullCost() * iceCubesNeededToBuy;
             return getIceCubes;
         }
@@ -165,7 +165,7 @@ namespace LemonadeStand
         }
        
     }
-    public void iceCubesCheckOut (Player player)
+    public void GrabIceCubes (Player player)
     {
         int amountOfIceCubes = amountOfIceCubesNeeded(player);
         amountOfIceCubesPurchased(amountOfIceCubes);
@@ -192,7 +192,7 @@ namespace LemonadeStand
     }
     public double amountOfCupsPurchased(int amountOfCupsNeeded)
     {
-        Cups cups = new Cups;
+        Cups cups = new Cups();
         getCups = Cups.pullCost() * amountOfCupsNeeded;
         return getCups;
     }
@@ -208,7 +208,7 @@ namespace LemonadeStand
             player.money.purchaseProduct(getCups);
         }
     }
-    public void checkOutCups(Player player)
+    public void GrabCups(Player player)
     {
         int amountOfCups = amountOfCupsNeeded(player);
         amountOfCupsPurchased(amountOfCups);

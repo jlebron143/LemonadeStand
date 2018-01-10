@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-   public class Game
+    public class Game
     {
-        public Random random;
+        
         public Forecast forecast;
+        public Store store;
+        public Everyday day;
         public Player player;
-        public Booth booth;
-        public Day day;
+        public Random rnd;
         public int randomValue;
 
-        public Game ()
+        public Game()
 
         {
-            random = new Random();
-            forecast = new Forecast(random);
+            rnd = new Random();
+            forecast = new Forecast(rnd);
             player = new Player();
-            booth = new Booth();
-            day = new Day(random);
+            store = new ();
+            day = new Everyday(rnd);
 
-    }
-        public RunGame()
+        }
+        public void RunGame()
         {
-            day.CreateCustomers();
+            day.makeCustomers();
             RandomNumber();
             DisplayOpeningStatement();
-            day.SellLemonade(player);     
+            day.SellLemonade(player);
 
         }
 
-        public DisplayOpeningStatement()
+        public void DisplayOpeningStatement()
         {
             Console.WriteLine("Knowing that you have a passion for entrepreneurship, I figured over the next week you'll be trying to make as much of a profit as possible");
             Console.WriteLine("With only $10.00 in your pocket, I suggest starting a lemonade stand to make a simple profit.");
@@ -46,12 +47,12 @@ namespace LemonadeStand
             MainMenu();
         }
 
-        public MakeForecast()
+        public void MakeForecast()
         {
             day.forecast.CreateTodaysForecast();
         }
 
-        public MainMenu()
+        public void MainMenu()
         {
             Console.WriteLine("Please submit the number of menu items you need.");
             Console.WriteLine("1: Rules\n\n 2:Forecast\n\n 3:Check Funds\n\n 4:go to the store\n\n 5:Check inventory\n\n 6:Look at Lemonade recipe.");
@@ -60,7 +61,7 @@ namespace LemonadeStand
             {
                 case "1":
                     Console.Clear();
-                    DisplayInstructions(); 
+                    DisplayInstructions();
 
                     break;
 
@@ -74,7 +75,7 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    case "3";
+                case "3":
                     Console.Clear();
                     player.funds.DisplayBalance();
                     Console.ReadLine();
@@ -82,15 +83,15 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    case "4":
+                case "4":
                     Console.Clear();
-                    store.restock(player);
+                    Store.restock(player);
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
                     break;
 
-                    case "5":
+                case "5":
                     Console.Clear();
                     player.inventory.DisplayAllInventory();
                     Console.ReadLine();
@@ -98,7 +99,7 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    case "6":
+                case "6":
                     Console.Clear();
                     player.inventory.DisplayAllProductInventory();
                     player.recipe.PickRecipe();
@@ -122,8 +123,24 @@ namespace LemonadeStand
                     Console.WriteLine("Our apologies, we do not have that available. \n\n");
                     MainMenu();
                     break;
+            }
+        }
+        public void DisplayRules()
+        {
+            Console.WriteLine("Welcome to Lemonade Stand! Today , you will be receiving a kickstart as to have a successful lemonade stand.");
+            Console.WriteLine("Are you ready? Here are the rules.");
+            Console.WriteLine("Everyday you need to check the forecast to predict how you day will turn out for profit.");
+            Console.WriteLine(" Next, you need to check your inventory to make your there is no shortage on your ingredients.");
+            Console.WriteLine("Then,you need to determine how many batches of lemonade you are going to make for the day based on your prediction. ");
+            Console.WriteLine("Please keep in mind that you make too much lemonade, you are NOT able to save the leftovers for the following day.");
+            Console.WriteLine("Once you have checked everything off your list , open up and start selling.");
+            Console.WriteLine("At the time of closing up your stand, you will be able to tally up your profit for the day.");
+            Console.WriteLine("Your profit for the day will determine how much you have invest fot your lemonade for the following day.");
+            Console.WriteLine("So spend and manage your money well.");
+            Console.WriteLine("GoodLuck!")
+                }
 
-                   public void RestartGame()
+        public void RestartGame()
         {
             Console.WriteLine("Would you like play again? [Y] or [N]");
             string answer = Console.ReadLine().ToUpper();
@@ -142,23 +159,20 @@ namespace LemonadeStand
         }
         public int RandomNumber()
         {
-            return randomValue = random.Next(1, 100);
+            return randomValue = rnd.Next(1, 100);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-          
-                
-        }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

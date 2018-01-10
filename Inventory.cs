@@ -13,17 +13,17 @@ namespace LemonadeStand
         List<IceCubes> iceCubes = new List<IceCubes>();
         List<Cups> cups = new List<Cups>();
 
-        public LemonsRequired(int AmountOfLemonsNeeded)
+        public void LemonsRequired(int AmountOfLemonsNeeded)
         {
-            for (int i = 0, i < AmountOfLemonsNeeded; i++)
+            for (int i = 0; i < AmountOfLemonsNeeded; i++)
             {
-                Lemon lemon = new Lemon();
+                Lemons lemon = new Lemons();
                 lemons.Add(lemon);
             }
             Console.WriteLine("Right now you have {0} lemons. \n\n", lemons.Count);
         }
 
-        public SubtractLemons(Player player)
+        public void SubtractLemons(Player player)
         {
             try
             {
@@ -40,22 +40,22 @@ namespace LemonadeStand
                 throw;
             }
         }
-        public SubmitSugar(int amountOFSugarNeeded)
+        public void SubmitSugar(int amountOFSugarNeeded)
         {
             for (int i = 0; i < amountOFSugarNeeded; i++)
             {
                 Sugar sugar = new Sugar();
                 this.sugar.Add(sugar);
             }
-            Console.WriteLine("You are buying {0} cups fo Sugar." Sugar.Count);
+            Console.WriteLine("You are buying {0} cups fo Sugar.", sugar.Count);
 
         }
         public void SubstractSugar(Player player)
         {
             try
             {
-                int takeAwaySugar = player.ingredients.BringOutSugar(;
-                for (int i = 0; i , discardSugar; int++)
+                int takeAwaySugar = player.ingredients.BringOutSugar();
+                for (int i = 0; i < discardSugar; i++)
                 {
                     sugar.RemoveAt(0);
                 }
@@ -71,7 +71,7 @@ namespace LemonadeStand
         {
             for (int i = 0; i < AmountOfIceCubesNeeded; i++)
             {
-                IceCubes iceCubes = new IceCubes;
+                IceCubes iceCubes = new IceCubes();
                 this.iceCubes.Add(iceCubes);
             }
             Console.WriteLine("Right now you have {0} of ice .", iceCubes.Count);
@@ -100,9 +100,10 @@ namespace LemonadeStand
         {
             for (int i = 0; i < AmountOfCupsNeeded; i++)
             {
-                Cups cups = new Cups;
+                Cups cups = new Cups();
                 this.cups.Add(cups);
             }
+        }
         public void SubstractCups(Player player)
         {
             try
