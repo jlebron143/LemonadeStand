@@ -36,9 +36,9 @@ namespace LemonadeStand
             Console.WriteLine("You need to set your price for each cup of lemonade. ");
             try
             {
-                double.priceOfCups = double.Parse(Console.ReadLine());
-                this.priceOfCups = priceOfCups;
-                return this.priceOfCups;
+                priceOfCups = double.Parse(Console.ReadLine());
+               
+                return priceOfCups;
             }
             catch (Exception)
             {
@@ -93,9 +93,5 @@ namespace LemonadeStand
             stopLemonade = player.ingredients.cupsForIngredients * player.ingredients.numberOfPitchers;
 
         }
-    }
-}
-
-
     }
 }

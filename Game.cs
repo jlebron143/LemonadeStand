@@ -41,8 +41,8 @@ namespace LemonadeStand
             Console.WriteLine("With only $10.00 in your pocket, I suggest starting a lemonade stand to make a simple profit.");
             Console.WriteLine("Let's take your $10.00 and use it to buy the ingredients you need from the store. This lemonade isn't going to make itself.");
             Console.WriteLine("Press [enter] to get to the Main Menu.");
-            Console.ReadLine;
-            Console.Clear;
+            Console.ReadLine();
+            Console.Clear();
             MakeForecast();
             MainMenu();
         }

@@ -16,6 +16,7 @@ namespace LemonadeStand
         public int TakeOutLemonsFromInventory;
         public int TakeOutSugarFromInventory;
         public int TakeOutCupsFromInventory;
+        public int TakeOutIceCubesFromInventory;
 
 
         public void PickIngredients()
@@ -51,9 +52,8 @@ namespace LemonadeStand
             Console.WriteLine("How many pitchers do you want to make for the day?");
             try
             {
-                int numberOfPitchers = int.Parse(Console.ReadLine());
-                this.PickNumberOfPitchers = numberOfPitchers;
-                return this.PickNumberOfPitchers;
+                numberOfPitchers = int.Parse(Console.ReadLine());
+                return numberOfPitchers;
 
             }
             catch (Exception)
@@ -71,8 +71,8 @@ namespace LemonadeStand
             Console.WriteLine("How many lemons do you need?");
             try
             {
-                int.amountOfLemonsNeeded = int.Parse(Console.ReadLine());
-                return this.amountOfLemonsNeeded = amountOfLemonsNeeded;
+               amountOfLemonsNeeded = int.Parse(Console.ReadLine());
+                return amountOfLemonsNeeded;
 
             }
             catch (Exception)
@@ -137,8 +137,8 @@ namespace LemonadeStand
         {
             try
             {
-                TakeOutLemomsFromInventory = numberOfPitchers * amountOflemonsNeeded;
-                return TakeOutLemonFromInventory;
+                TakeOutLemonsFromInventory = numberOfPitchers * amountOfLemonsNeeded;
+                return TakeOutLemonsFromInventory;
             }
             catch (Exception)
             {
@@ -161,7 +161,7 @@ namespace LemonadeStand
                 throw;
             }
         }
-        public void BringOutCups()
+        public int BringOutCups()
         {
             try
             {
