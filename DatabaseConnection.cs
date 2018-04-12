@@ -9,21 +9,20 @@ namespace LemonadeStand
 {
     class DatabaseConnection
     {
-        // member variables
         public string ConnectionString = "Server = LAPTOP-ASVD7906 ; Database=lemonadestand; Integrated Security=true;";
         SqlConnection con;
 
-        //constructor
+       
         public DatabaseConnection()
         {
             con = new SqlConnection(ConnectionString);
         }
 
 
-        //member methods
+       
         public void OpenConnection()
         {
-            // con = new SqlConnection(ConnectionString);
+            
             con.Open();
         }
 
