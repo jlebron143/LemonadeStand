@@ -42,7 +42,7 @@ namespace LemonadeStand
             Console.WriteLine("Let's take your $10.00 and use it to buy the ingredients you need from the store. This lemonade isn't going to make itself.");
             Console.WriteLine("Press [enter] to get to the Main Menu.");
             Console.ReadLine();
-            Console.Clear();
+            //Console.Clear();
             MakeForecast();
             MainMenu();
         }
