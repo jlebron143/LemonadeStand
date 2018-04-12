@@ -60,7 +60,7 @@ namespace LemonadeStand
         public int CustomersDesireForPurchase()
         {
             int howManyamountOfCupsBought = rnd.Next(0, cupsPriceAgreement.Count);
-            amountOfCupsBought = cupsPriceAgreement[howManyamountOfCupsBought];
+            amountOfCupsBought = amountOfCupsCustomer[howManyamountOfCupsBought];
             return amountOfCupsBought;
         }
         public void makeCustomers()
@@ -69,7 +69,7 @@ namespace LemonadeStand
             {
                 int amountOfCups = CustomersDesireForPurchase();
                 double amountToPay = CustomerBuyingLemonade();
-                Customers customer = new Customers(moneyToPay, howManyCups);
+                Customers customer = new Customers(amountOfCups, amountOfCups);
                 customers.Add(customer);
             }
         }

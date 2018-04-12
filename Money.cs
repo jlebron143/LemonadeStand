@@ -18,7 +18,7 @@ namespace LemonadeStand
         {
             Console.WriteLine(startingFunds);
         }
-        public bool checkShortFunds()
+        public bool checkShortFunds(double productCost)
         {
             if (startingFunds < productCost)
             {
@@ -44,6 +44,11 @@ namespace LemonadeStand
             profit = startingFunds - beginningInvestment;
             Console.WriteLine("This week you have made {0} in profit!");
 
+        }
+
+        internal bool checkShortFunds(object getIceCubes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

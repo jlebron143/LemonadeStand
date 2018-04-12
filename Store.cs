@@ -43,7 +43,7 @@ namespace LemonadeStand
         {
             Console.WriteLine(" The price of lemons are .15 cents each. \n\n");
             Console.WriteLine(" How many do you need?");
-                try
+            try
             {
                 int lemonsNeeded = int.Parse(Console.ReadLine());
                 return lemonsNeeded;
@@ -70,11 +70,11 @@ namespace LemonadeStand
             }
             else
             {
-                player.money.purchaseProducts(getLemons);
+                player.money.transactionOnProducts(getLemons);
 
             }
         }
-        public void GrabLemoms(Player player)
+        public void GrabLemons(Player player)
         {
             int amountOfLemons = AmountOfLemonsNeeded(player);
             amountOfPurchasedLemons(amountOfLemons);
@@ -87,7 +87,7 @@ namespace LemonadeStand
         {
             Console.WriteLine(" Every cup of sugar cost .50  cents. \n\n");
             Console.WriteLine("How many cups of sugar do you need to buy today?");
-           try
+            try
             {
                 int sugarNeeded = int.Parse(Console.ReadLine());
                 return sugarNeeded;
@@ -115,18 +115,18 @@ namespace LemonadeStand
             }
             else
             {
-                player.money.purchaseProducts(getSugar);
+                player.money.transactionOnProducts(getSugar);
             }
         }
         public void GrabSugar(Player player)
         {
             int amountOfSugar = amountOfSugarNeeded(player);
-            amountOfSugarPurchased (amountOfSugar);
+            amountOfSugarPurchased(amountOfSugar);
             buySugar(player);
-            player.inventory.SugarRequired(amountOfSugar);
+            player.inventory.SubmitSugar(amountOfSugar);
             GroceryShop(player);
         }
-        public void amountOfIceCubesNeeded(Player player)
+        public int amountOfIceCubesNeeded(Player player)
         {
             Console.WriteLine("They have ice cubes at .10 cents.");
             Console.WriteLine("How many ice cubes do you need today?");
@@ -143,80 +143,81 @@ namespace LemonadeStand
                 throw;
             }
         }
-        public double amountOfIceCubesPurchased( int iceCubesNeededToBuy)
+        public double amountOfIceCubesPurchased(int iceCubesNeededToBuy)
         {
             IceCubes iceCubes = new IceCubes();
             getIceCubes = iceCubes.pullCost() * iceCubesNeededToBuy;
             return getIceCubes;
         }
-                
+
+
+        public void buyIceCubes(Player player)
+        {
+            if (player.money.checkShortFunds(getIceCubes))
+            {
+                GroceryShop(player);
+
             }
-    public void buyIceCubes(Player player)
-    {
-        if (player.money.checkShortFunds(getIceCubes))
+            else
+            {
+                player.money.transactionOnProducts(getIceCubes);
+
+            }
+
+        }
+        public void GrabIceCubes(Player player)
         {
+            int amountOfIceCubes = amountOfIceCubesNeeded(player);
+            amountOfIceCubesPurchased(amountOfIceCubes);
+            buyIceCubes(player);
+            player.inventory.submitIceCubes(amountOfIceCubes);
+            GroceryShop(player);
+        }
+        public int AmountOfCupsNeeded(Player player)
+        {
+            Console.WriteLine("Today each cups is on sale for .15 each.");
+            Console.WriteLine("How many cups do you need today?");
+            try
+            {
+                int cupsNeeded = int.Parse(Console.ReadLine());
+                return cupsNeeded;
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invaild! Try again.");
+                GroceryShop(player);
+                throw;
+            }
+        }
+        public double amountOfCupsPurchased(int amountOfCupsNeeded)
+        {
+            Cups cups = new Cups();
+            getCups = cups.pullCost() * amountOfCupsNeeded;
+            return getCups;
+        }
+        public void BuyCups(Player player)
+        {
+            if (player.money.checkShortFunds(getCups))
+            {
+                GroceryShop(player);
+
+            }
+            else
+            {
+                player.money.transactionOnProducts(getCups);
+            }
+        }
+        public void GrabCups(Player player)
+        {
+            int amountOfCups = AmountOfCupsNeeded(player);
+            amountOfCupsPurchased(amountOfCups);
+            BuyCups(player);
+            player.inventory.submitIceCubes(amountOfCups);
             GroceryShop(player);
 
         }
-        else
-        {
-            player.money.purchaseProduct(getIceCubes);
-
-        }
-       
     }
-    public void GrabIceCubes (Player player)
-    {
-        int amountOfIceCubes = amountOfIceCubesNeeded(player);
-        amountOfIceCubesPurchased(amountOfIceCubes);
-        buyIceCubes(player);
-        player.inventory.IceCubesRequired(amountOfIceCubes);
-        GroceryShop(player);
-    }
-    public int amountOfCupsNeeded(Player player)
-    {
-        Console.WriteLine("Today each cups is on sale for .15 each.");
-        Console.WriteLine("How many cups do you need today?");
-        try
-        {
-            int cupsNeeded = int.Parse(Console.ReadLine());
-            return cupsNeeded;
-
-        }
-        catch(Exception)
-        {
-            Console.WriteLine("Invaild! Try again.");
-            GroceryShop(player);
-            throw;
-        }
-    }
-    public double amountOfCupsPurchased(int amountOfCupsNeeded)
-    {
-        Cups cups = new Cups();
-        getCups = Cups.pullCost() * amountOfCupsNeeded;
-        return getCups;
-    }
-     public void buyCups (Player player)
-    {
-        if (player.money.checkShortFunds(getCups))
-        {
-            GroceryShop(player);
-
-        }
-        else
-        {
-            player.money.purchaseProduct(getCups);
-        }
-    }
-    public void GrabCups(Player player)
-    {
-        int amountOfCups = amountOfCupsNeeded(player);
-        amountOfCupsPurchased(amountOfCups);
-        buyCups(player);
-        player.inventory.IceCubesRequired(amountOfCups);
-        GroceryShop(player);
-        
-    }
-        }
+}
 
        

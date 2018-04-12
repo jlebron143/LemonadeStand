@@ -104,7 +104,7 @@ namespace LemonadeStand
                     player.inventory.DisplayAllOfInventory();
                     player.ingredients.PickIngredients();
                     player.inventory.ReturnItemsBackInInventory(player);
-                    Console.WriteLine("Right now you now have {0} cups of lemonade!!", (player.ingredients.numberOfPitchers * player.ingredients.cupsForRecipe));
+                    Console.WriteLine("Right now you now have {0} cups of lemonade!!", (player.ingredients.numberOfPitchers * player.ingredients.cupsForIngredients));
                     day.endOfSaleCalcuations(player);
                     Console.ReadLine();
                     Console.Clear();

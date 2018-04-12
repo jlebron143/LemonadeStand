@@ -54,7 +54,7 @@ namespace LemonadeStand
         {
             try
             {
-                int takeAwaySugar = player.ingredients.BringOutSugar();
+                int discardSugar = player.ingredients.BringOutSugar();
                 for (int i = 0; i < discardSugar; i++)
                 {
                     sugar.RemoveAt(0);
@@ -81,7 +81,7 @@ namespace LemonadeStand
         {
             try
             {
-                int takeAwayIceCubes = player.BringOutIceCubes();
+                int discardIceCubes = player.ingredients.BringOutIceCubes();
                 for (int i = 0; i < discardIceCubes; i++)
                 {
                     iceCubes.RemoveAt(0);
@@ -91,7 +91,7 @@ namespace LemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
-                player.ingredients.pickIngredients();
+                player.ingredients.PickIngredients();
                 throw;
             }
         }
@@ -108,7 +108,7 @@ namespace LemonadeStand
         {
             try
             {
-                int takeAwayCups = player.BringOutCups();
+                int discardCups = player.ingredients.BringOutCups();
                 for (int i = 0; i < discardCups; i++)
                 {
                     cups.RemoveAt(0);
@@ -117,7 +117,7 @@ namespace LemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("Oh no! It seems like you need to make some changes to the ingredients. Start over.");
-                player.ingredients.pickIngredients();
+                player.ingredients.PickIngredients();
                 throw;
             }
         }

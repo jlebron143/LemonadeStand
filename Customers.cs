@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-   public class Customers
+    public class Customers
     {
-       
+
         public double chanceOfMaxPurchase;
         public int amountOfCupsBought;
 
         public bool purchase;
         double probabilityOfPurchase;
         double investmentPrediction;
-        
+
         double temperaturePrediction;
         double statusPrediction;
         Random rnd;
         double measurePercentage = 100;
 
-        public Customers( double ChanceOfMaxPurchase, double AmountOfCupsBought)
+        public Customers(double ChanceOfMaxPurchase, int AmountOfCupsBought)
         {
             chanceOfMaxPurchase = ChanceOfMaxPurchase;
             amountOfCupsBought = AmountOfCupsBought;
@@ -45,9 +45,9 @@ namespace LemonadeStand
             }
         }
 
-        public void purchaseTemperatureProbablitity (Forecast forecast)
+        public void purchaseTemperatureProbablitity(Forecast forecast)
         {
-            if( forecast.temperature <= 65)
+            if (forecast.temperature <= 65)
             {
                 temperaturePrediction = measurePercentage - .50;
             }
@@ -57,7 +57,7 @@ namespace LemonadeStand
 
             }
         }
-       
+
         public void probablitityTopurchase(Everyday day)
         {
             if (day.probabilityToPurchase == .50)
@@ -81,14 +81,51 @@ namespace LemonadeStand
             }
         }
 
+        public double WillingToBuy()
+        {
+            List<double> actualChanceToBuy = new List<double>();
+            actualChanceToBuy.Add(statusPrediction);
+            actualChanceToBuy.Add(temperaturePrediction);
+            actualChanceToBuy.Add(investmentPrediction);
+            double probabilityOfPurchas = actualChanceToBuy.Average();
+            this.probabilityOfPurchase = probabilityOfPurchase;
+            return this.probabilityOfPurchase;
 
+        }
 
+        public bool CustomerPurchasesLemonade(int randomValue)
+        {
+            int worth = 100;
+            if (probabilityOfPurchase <= worth)
+            {
+                purchase = false;
+            }
+            else
+            {
+                purchase = true;
+            }
+            return this.purchase;
+        }
 
-
-
-
-
-
-
+        public void DecidesCustomersBuys(Forecast forecast, Everyday everyday, int randomValue)
+        {
+            purchaseStatusProbablitity(forecast);
+            purchaseTemperatureProbablitity(forecast);
+            probablitityTopurchase(everyday);
+            WillingToBuy();
+            CustomerPurchasesLemonade(randomValue);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+ 
